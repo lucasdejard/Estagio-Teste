@@ -5,10 +5,7 @@ arqWrite = open('funcionarios.json', 'ab',)
 arqRead = open('funcionarios.json', 'r', encoding="utf-8")
 dictlogs = str(arqRead.read())
 dados_json = json.loads(dictlogs)
-print(dados_json['funcionarios'][0]['salario'])
 
-nome = []
-salario = []
 Gmin = [float(dados_json['funcionarios'][0]['salario'])]
 min_nome = [0]
 Gminlen = 0
@@ -20,11 +17,8 @@ lines = 0
 
 
 while lines < len(dados_json['funcionarios']):
-    nome.append(dados_json['funcionarios'][lines]['nome'] + " " + dados_json['funcionarios'][lines]['sobrenome'])
-    salario.append(dados_json['funcionarios'][lines]['salario'])
+
     Gavg = Gavg + float(dados_json['funcionarios'][lines]['salario'])
-    print(nome)
-    print(salario)
     if float(dados_json['funcionarios'][lines]['salario']) >= int(Gmax[Gmaxlen]):
 
         if float(dados_json['funcionarios'][lines]['salario']) != int(Gmax[Gmaxlen-1]):
@@ -53,8 +47,6 @@ while lines < len(dados_json['funcionarios']):
                             dados_json['funcionarios'][lines]['sobrenome'])
     lines = lines + 1
 print("global_avg|" + "{:.2f}".format(Gavg/lines))
-
-print(Gmax)
 lines = 0
 while lines < len(max_nome):
     print("global max|" + str(max_nome[lines]) + "|" + str(Gmax[0]))
@@ -62,5 +54,5 @@ while lines < len(max_nome):
 
 lines = 0
 while lines < len(min_nome):
-    print("global max|" + str(max_nome[lines]) + "|" + str(Gmax[0]))
+    print("global min|" + str(min_nome[lines]) + "|" + str(Gmin[0]))
     lines = lines+1
