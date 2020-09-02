@@ -49,10 +49,10 @@ while lines < len(dados_json['funcionarios']):
 print("global_avg|" + "{:.2f}".format(Gavg/lines))
 lines = 0
 while lines < len(max_nome):
-    print("global max|" + str(max_nome[lines]) + "|" + str(Gmax[0]))
+    print("global max|" + str(max_nome[lines]) + "|" + str("{:.2f}".format(Gmax[0])))
     lines = lines+1
 
 lines = 0
 while lines < len(min_nome):
-    print("global min|" + str(min_nome[lines]) + "|" + str(Gmin[0]))
+    print("global min|" + str(min_nome[lines]) + "|" + str("{:.2f}".format(Gmin[0])))
     lines = lines+1

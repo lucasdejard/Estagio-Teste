@@ -6,15 +6,6 @@ arqRead = open('funcionarios.json', 'r', encoding="utf-8")
 dictlogs = str(arqRead.read())
 dados_json = json.loads(dictlogs)
 
-nome = []
-salario = []
-Gmin = [float(dados_json['funcionarios'][0]['salario'])]
-min_nome = [0]
-Gminlen = 0
-Gmax = [0]
-max_nome = [0]
-Gmaxlen = 0
-Gavg = 0
 lines = 0
 
 SDmin = [0]
@@ -46,9 +37,6 @@ linesud = 0
 
 # calculo SD
 while lines < len(dados_json['funcionarios']):
-    nome.append(dados_json['funcionarios'][lines]['nome'] + " " + dados_json['funcionarios'][lines]['sobrenome'])
-    salario.append(dados_json['funcionarios'][lines]['salario'])
-
     if dados_json['funcionarios'][lines]['area'] == "SD":
 
         linessd = linessd + 1
@@ -154,12 +142,12 @@ while lines < len(dados_json['funcionarios']):
 print("area_avg|Desenvolvimento de Software|" + "{:.2f}".format(SDavg/linessd))
 lines = 0
 while lines < len(SDmax_nome):
-    print("area_max|Desenvolvimento de Software|" + str(SDmax_nome[lines]) + "|" + str(SDmax[0]))
+    print("area_max|Desenvolvimento de Software|" + str(SDmax_nome[lines]) + "|" + str("{:.2f}".format(SDmax[0])))
     lines = lines+1
 
 lines = 0
 while lines < len(SDmin_nome):
-    print("area_min|Desenvolvimento de Software|" + str(SDmin_nome[lines]) + "|" + str(SDmin[0]))
+    print("area_min|Desenvolvimento de Software|" + str(SDmin_nome[lines]) + "|" + str("{:.2f}".format(SDmin[0])))
     lines = lines+1
 lines = 0
 
@@ -167,22 +155,22 @@ lines = 0
 print("area_avg|Gerenciamento de Software|" + "{:.2f}".format(SMavg/linessm))
 
 while lines < len(SMmax_nome):
-    print("area_max|Gerenciamento de Software|" + str(SMmax_nome[lines]) + "|" + str(SMmax[0]))
+    print("area_max|Gerenciamento de Software|" + str(SMmax_nome[lines]) + "|" + str("{:.2f}".format(SMmax[0])))
     lines = lines+1
 
 lines = 0
 while lines < len(SMmin_nome):
-    print("area_min|Gerenciamento de Software|" + str(SMmin_nome[lines]) + "|" + str(SMmin[0]))
+    print("area_min|Gerenciamento de Software|" + str(SMmin_nome[lines]) + "|" + str("{:.2f}".format(SMmin[0])))
     lines = lines+1
 lines = 0
 
 # output of UD
 print("area_avg|Designer de UI/UX|" + "{:.2f}".format(UDavg/linesud))
 while lines < len(UDmax_nome):
-    print("area_max|Designer de UI/UX" + str(UDmax_nome[lines]) + "|" + str(UDmax[0]))
+    print("area_max|Designer de UI/UX" + str(UDmax_nome[lines]) + "|" + str("{:.2f}".format(UDmax[0])))
     lines = lines+1
 
 lines = 0
 while lines < len(UDmin_nome):
-    print("area_min|Designer de UI/UX|" + str(UDmin_nome[lines]) + "|" + str(UDmin[0]))
+    print("area_min|Designer de UI/UX|" + str(UDmin_nome[lines]) + "|" + str("{:.2f}".format(UDmin[0])))
     lines = lines+1
